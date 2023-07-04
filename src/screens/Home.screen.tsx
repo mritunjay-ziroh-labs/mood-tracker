@@ -1,11 +1,25 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { MoodPicker } from '../components/MoodPicker';
+import { MoodOptionType, MoodOptionWithTimestamp } from '../types';
 
 export const Home: React.FC = () => {
+  const [modalList, setModalList] = React.useState<MoodOptionWithTimestamp[]>(
+    [],
+  );
+
+  const handleSelectMood = React.useCallback((mood: MoodOptionType) => {
+    setModalList(current => [...current, { mood, timestamp: Date.now() }]);
+  }, []);
+
   return (
     <View style={styles.container}>
-      <MoodPicker />
+      <MoodPicker onSelect={handleSelectMood} />
+      {modalList.map(item => (
+        <Text key={item.timestamp}>
+          {item.mood.emoji} {new Date(item.timestamp).toString()}
+        </Text>
+      ))}
     </View>
   );
 };
