@@ -4,4 +4,7 @@ export const theme = {
   colorLavender: '#87677b',
   colorBlue: '#1d84b5',
   colorGrey: '#8e9aaf',
+  fontFamilyBold: 'Kalam-Bold',
+  fontFamilyRegular: 'Kalam-Regular',
+  fontFamilyLight: 'Kalam-Light',
 };
