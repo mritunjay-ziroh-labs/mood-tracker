@@ -14,7 +14,7 @@ export const MoodItemRow: React.FC<MoodItemRowProps> = ({ item }) => {
         <Text style={styles.moodValue}>{item.mood.emoji}</Text>
         <Text style={styles.moodDescription}>{item.mood.description}</Text>
       </View>
-      <Text>
+      <Text style={styles.moodDate}>
         {format(new Date(item.timestamp), "dd MMM, yyyy 'at' h:mmaaa")}
       </Text>
     </View>
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   moodDate: {
     textAlign: 'center',
     color: theme.colorLavender,
+    fontFamily: theme.fontFamilyLight,
   },
   moodItem: {
     backgroundColor: 'white',
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   moodDescription: {
     fontSize: 18,
     color: theme.colorPurple,
-    fontWeight: 'bold',
+    fontFamily: theme.fontFamilyBold,
   },
   iconAndDescription: {
     flexDirection: 'row',
